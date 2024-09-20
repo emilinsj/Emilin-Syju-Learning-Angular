@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h4>{{firstName}}</h4>
-<h4>{{lastName}}</h4>
-</body>
-</html>
+<h1>{{title}}</h1>
+<div class="container">
+  <div>
+    <div *ndFor="let Phone of PhoneList" class="phone-card">
+      <div *ngIf="PhoneList[6]" class="phones">
+        <p>Number: {{Phone.serialNumber}}</p>
+        <p>Brand: {{Phone.phoneBrand}}</p>
+        <p>Name: {{Phone.name}}</p>
+        <p>Color: {{Phone.color}}</p>
+        <p>Software: {{Phone.software}}</p>
+      </div>
+    </div>
+  </div>
+</div>

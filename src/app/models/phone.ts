@@ -1,7 +1,7 @@
 export interface Phone {
   serialNumber: number;
   phoneBrand: string;
-  Name: string;
+  name: string;
   color: string;
   software?: string;
 }
