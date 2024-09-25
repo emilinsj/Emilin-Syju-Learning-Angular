@@ -1,4 +1,9 @@
-<app-phone-list-item></app-phone-list-item>
-<app-phone-list-item></app-phone-list-item>
-<app-phone-list-item></app-phone-list-item>
-<app-phone-list-item></app-phone-list-item>
+<table>
+  <tr *ngFor="let phone of PhoneList">
+    <td>{{phone.serialNumber}}</td>
+    <td>{{phone.brand}}</td>
+    <td>{{phone.name}}</td>
+    <td>{{phone.color}}</td>
+    <td>{{phone.software}}</td>
+  </tr>
+</table>
