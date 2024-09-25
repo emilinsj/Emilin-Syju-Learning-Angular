@@ -1,14 +1,2 @@
-<h1>{{title}}</h1>
-<div class="container">
-  <div>
-    <div *ndFor="let Phone of PhoneList" class="phone-card">
-      <div *ngIf="PhoneList[6]" class="phones">
-        <p>Number: {{Phone.serialNumber}}</p>
-        <p>Brand: {{Phone.brand}}</p>
-        <p>Name: {{Phone.name}}</p>
-        <p>Color: {{Phone.color}}</p>
-        <p>Software: {{Phone.software}}</p>
-      </div>
-    </div>
-  </div>
-</div>
+<h1>{{ title }}</h1>
+<app-phone-list></app-phone-list>
