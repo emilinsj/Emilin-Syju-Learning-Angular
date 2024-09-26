@@ -28,6 +28,6 @@ tr:nth-of-type(even){
   background-color: teal;
 }
 tr:nth-of-type(odd){
-  background-color: aquamarine;
+  background-color: cadetblue;
 }
 
