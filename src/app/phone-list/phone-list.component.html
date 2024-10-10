@@ -1,4 +1,4 @@
-<table>
+<!--<table>
   <tr *ngFor="let phone of PhoneList" class="requires">
     <td>{{phone.serialNumber}}</td>
     <td>{{phone.brand}}</td>
@@ -6,6 +6,8 @@
     <td>{{phone.color}}</td>
     <td>{{phone.software}}</td>
   </tr>
-</table>
-<app-phone-list-item [phone]=""></app-phone-list-item>
+</table>-->
 
+<div *ngFor="let phone of PhoneList">
+  <app-phone-list-item [phone]="phone"></app-phone-list-item>
+</div>
