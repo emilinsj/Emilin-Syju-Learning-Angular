@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 //import {Phone} from "../models/phone";
 import {PhoneListItemComponent} from "../phone-list-item/phone-list-item.component";
 import {NgForOf} from "@angular/common";
@@ -16,8 +16,8 @@ import {PhoneService} from "../services/phone.service";
   styleUrl: './phone-list.component.css'
 })
 export class PhoneListComponent implements OnInit {
-  display:string[]=["serialNumber","brand","name","color","software"];
   PhoneList:Phone[]=[];
+  @Input() phone! : Phone
   constructor(private phoneService:PhoneService) {
   }
 
