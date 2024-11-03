@@ -1,4 +1,34 @@
-<div *ngFor="let list of PhoneList">
-<app-phone-list-item [phone]="list"></app-phone-list-item>
+<div class="container">
+  <h2>Phone List</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Brand</th>
+      <th>Color</th>
+      <th>Name</th>
+      <th>Software</th>
+      <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let phone of PhoneList" [routerLink]="['/phones',phone.serialNumber ]">
+      <td>{{ phone.serialNumber }}</td>
+      <td>{{ phone.brand}}</td>
+      <td>{{ phone.color }}</td>
+      <td>{{ phone.name}}</td>
+      <td>{{ phone.software }}</td>
+      <td><img ngSrc="../../images" alt="{{phone.name}}" width="50" height="50"/> </td>
+      <td>
+        <button (click)="editPhone(phone.serialNumber)">Edit</button>
+        <button (click)="deletePhone(phone.serialNumber)">Delete</button>
+      </td>
+
+    </tr>
+
+    </tbody>
+  </table>
 
 </div>
+
+<div *ngIf="error" class="error">{{ error }}</div>

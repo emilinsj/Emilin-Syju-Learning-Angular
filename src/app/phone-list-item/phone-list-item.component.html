@@ -1,4 +1,4 @@
-<div *ngIf="phone" class="detail" [routerLink]="['/phones','phones.serialNumber']">
+<div *ngIf="phone" class="detail" >
   <h3>Phone Collection</h3>
   <p>Serial Number:{{phone.serialNumber}}</p>
   <p>Name:{{phone.name}}</p>
@@ -7,3 +7,4 @@
   <p>Software:{{phone.software}}</p>
   <p>Image: {{phone.path}}</p>
 </div>
+<div *ngIf="error" class="error">{{ error }}</div>
