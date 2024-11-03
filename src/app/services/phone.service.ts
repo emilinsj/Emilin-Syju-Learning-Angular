@@ -32,4 +32,7 @@ export class PhoneService {
     this.phones = this.phones.filter(user => user.serialNumber !== PhoneId);
     return of(this.phones);
   }
+  generateNewID():number{
+    return this.phones.length > 0 ? Math.max(...this.phones.map(phone => phone.serialNumber)) + 1 : 1;
+  }
 }

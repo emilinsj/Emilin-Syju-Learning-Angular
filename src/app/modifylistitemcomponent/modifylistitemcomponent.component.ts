@@ -27,7 +27,7 @@ export class ModifylistitemcomponentComponent implements OnInit{
     private router: Router
   ) {
     this.phoneForm=this.fb.group({
-      serialNumber:['',Validators.required],
+      serialNumber:[phoneService.generateNewID()],
       brand:['',Validators.required],
       name:['',Validators.required],
       color:[''],
@@ -58,11 +58,13 @@ export class ModifylistitemcomponentComponent implements OnInit{
       if(phone.serialNumber){
         this.phoneService.updatePhone(phone).subscribe(()=>this.router.navigate(['/phones']));
       } else{
+        phone.serialNumber=this.phoneService.generateNewID();
         this.phoneService.addPhone(phone).subscribe(()=>this.router.navigate(['/phones']))
 
       }
     }
   }
+
 
 
 }
