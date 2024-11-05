@@ -4,5 +4,5 @@ export interface Phone {
   name: string;
   color: string;
   software?: string;
-  path:string;
+  imgPath:String;
 }

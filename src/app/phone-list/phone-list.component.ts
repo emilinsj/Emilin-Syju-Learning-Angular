@@ -46,16 +46,17 @@ export class PhoneListComponent implements OnInit {
 
   }
   deletePhone(serialNumber:number){
+
     this.phoneService.deletePhone(serialNumber).subscribe({
-      next:(updatePhoneList:Phone[])=>{
-        this.PhoneList=updatePhoneList;
+      next:(updatePhone:Phone[])=>{
+        this.PhoneList=updatePhone;
         this.error=null;
       },
       error:err=>{
         this.error='Error Deleting phone';
         console.error("Error deleting phone",err);
       }
-    })
+    });
   }
  /* selectedPhone?:Phone;
   selectsPhone(phone:Phone):void{

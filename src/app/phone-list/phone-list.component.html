@@ -18,7 +18,7 @@
       <td>{{ phone.color }}</td>
       <td>{{ phone.name}}</td>
       <td>{{ phone.software }}</td>
-      <td><img ngSrc="../../images" alt="{{phone.name}}" width="50" height="50"/> </td>
+      <td><img [src]="phone.imgPath" alt="{{phone.name}}" width="50" height="50"/> </td>
       <td>
         <button (click)="editPhone(phone.serialNumber)">Edit</button>
         <button (click)="deletePhone(phone.serialNumber)">Delete</button>

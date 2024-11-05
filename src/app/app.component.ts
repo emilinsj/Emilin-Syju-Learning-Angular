@@ -17,7 +17,7 @@ import {PhoneList} from "./models/mock-phone";
 })
 export class AppComponent implements OnInit{
   title = ' Phone collection';
-  newPhoneList : Phone={serialNumber:7, brand: "Apple",name:"Iphone 13",color:"violet",software:"ios", path:'/images/13.jpg'};
+  newPhoneList : Phone={serialNumber:7, brand: "Apple",name:"Iphone 13",color:"violet",software:"ios", imgPath:'/13.jpg'};
   constructor(private phoneService: PhoneService) {
   }
 
