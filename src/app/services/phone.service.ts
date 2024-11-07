@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {catchError, Observable, of, throwError} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Phone} from "../models/phone";
 import {PhoneList} from "../models/mock-phone";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 
 
 @Injectable({
@@ -13,17 +13,17 @@ export class PhoneService {
   private phones:Phone[]=PhoneList;
   constructor(private http: HttpClient) { }
   getPhones(): Observable<Phone[]>{
-    return this.http.get<Phone[]>(this.apiUrl).pipe(catchError(this.handleError));
+    return this.http.get<Phone[]>(this.apiUrl);
   }
   getPhoneById(phoneId: number): Observable<Phone>{
-    return this.http.get<Phone>(`${this.apiUrl}/${phoneId}`).pipe(catchError(this.handleError));
+    return this.http.get<Phone>(`${this.apiUrl}/${phoneId}`);
   }
   addPhone(newPhone:Phone): Observable<Phone>{
-    return this.http.post<Phone>(this.apiUrl, newPhone).pipe(catchError(this.handleError));
+    return this.http.post<Phone>(this.apiUrl, newPhone);
   }
   updatePhone(updatedPhone: Phone): Observable<Phone | undefined> {
     const url = `${this.apiUrl}/${updatedPhone.serialNumber}`;
-    return this.http.put<Phone>(url,updatedPhone).pipe(catchError(this.handleError));
+    return this.http.put<Phone>(url,updatedPhone);
   }
   deletePhone(PhoneId: number): Observable<Phone[]> {
     this.phones = this.phones.filter(user => user.serialNumber !== PhoneId);
@@ -32,8 +32,5 @@ export class PhoneService {
   generateNewID():number{
     return this.phones.length > 0 ? Math.max(...this.phones.map(phone => phone.serialNumber)) + 1 : 1;
   }
-  private handleError(error: HttpErrorResponse) {
-    console.error('API error:', error);
-    return throwError(() => new Error('Server error, please try again.'));
-  }
+
 }
