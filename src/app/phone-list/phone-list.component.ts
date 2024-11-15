@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PhoneListItemComponent} from "../phone-list-item/phone-list-item.component";
-import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {LowerCasePipe, NgForOf, NgIf, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import {Phone} from "../models/phone";
 import {PhoneService} from "../services/phone.service";
 import {Router, RouterLink} from "@angular/router";
@@ -13,7 +13,10 @@ import {Router, RouterLink} from "@angular/router";
     NgForOf,
     RouterLink,
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    LowerCasePipe,
+    TitleCasePipe
   ],
   templateUrl: './phone-list.component.html',
   styleUrl: './phone-list.component.css'

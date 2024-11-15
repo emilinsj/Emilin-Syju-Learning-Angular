@@ -14,10 +14,10 @@
     <tbody>
     <tr *ngFor="let phone of PhoneList" [routerLink]="['/phones',phone.serialNumber ]">
       <td>{{ phone.serialNumber }}</td>
-      <td>{{ phone.brand}}</td>
-      <td>{{ phone.color }}</td>
+      <td>{{ phone.brand | uppercase}}</td>
+      <td>{{ phone.color | titlecase}}</td>
       <td>{{ phone.name}}</td>
-      <td>{{ phone.software }}</td>
+      <td>{{ phone.software | lowercase}}</td>
       <td><img [src]="phone.imgPath" alt="{{phone.name}}" width="50" height="50"/> </td>
       <td>
         <button (click)="editPhone(phone.serialNumber)">Edit</button>
