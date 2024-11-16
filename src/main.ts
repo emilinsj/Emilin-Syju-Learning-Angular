@@ -3,13 +3,10 @@ import { AppComponent } from './app/app.component';
 import {provideRouter, Routes} from "@angular/router";
 import {PhoneListComponent} from "./app/phone-list/phone-list.component";
 import {PhoneListItemComponent} from "./app/phone-list-item/phone-list-item.component";
-import {PagenotfoundcomponentComponent} from "./app/pagenotfoundcomponent/pagenotfoundcomponent.component";
-import {ModifylistitemcomponentComponent} from "./app/modifylistitemcomponent/modifylistitemcomponent.component";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {importProvidersFrom} from "@angular/core";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./app/services/in-memory-data.service";
-
 const routes:Routes=[
   {path:'phones', component:PhoneListComponent},
   {path:'phones/:serialNumber', component:PhoneListItemComponent},
@@ -18,10 +15,10 @@ const routes:Routes=[
       import('./app/phone-list-item/phone-list-item.component').then(m => m.PhoneListItemComponent) },
   { path: 'modifylistitem',
     loadComponent: () =>
-      import('./app/modifylistitem/modifylistitem.component').then(m => m.Modify) },
+      import('./app/modifylistitemcomponent/modifylistitemcomponent.component').then(m => m.ModifylistitemcomponentComponent) },
   { path: '**',
     loadComponent: () =>
-      import('./app/pagenotfound/pagenotfound.component').then(m => m.PageNotFoundComponent) },
+      import('./app/pagenotfoundcomponent/pagenotfoundcomponent.component').then(m => m.PagenotfoundcomponentComponent) },
 
 ];
 
