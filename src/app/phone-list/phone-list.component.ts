@@ -1,9 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {PhoneListItemComponent} from "../phone-list-item/phone-list-item.component";
-import {LowerCasePipe, NgForOf, NgIf, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from "@angular/common";
+import {
+  CurrencyPipe,
+  LowerCasePipe,
+  NgForOf,
+  NgIf,
+  NgOptimizedImage,
+  PercentPipe,
+  TitleCasePipe,
+  UpperCasePipe
+} from "@angular/common";
 import {Phone} from "../models/phone";
 import {PhoneService} from "../services/phone.service";
 import {Router, RouterLink} from "@angular/router";
+import {ProductPipe} from "../pipes/product.pipe";
+
 
 @Component({
   selector: 'app-phone-list',
@@ -16,7 +27,10 @@ import {Router, RouterLink} from "@angular/router";
     NgOptimizedImage,
     UpperCasePipe,
     LowerCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    PercentPipe,
+    CurrencyPipe,
+    ProductPipe
   ],
   templateUrl: './phone-list.component.html',
   styleUrl: './phone-list.component.css'

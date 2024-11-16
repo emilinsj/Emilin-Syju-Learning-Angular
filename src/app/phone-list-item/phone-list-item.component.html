@@ -3,7 +3,8 @@
   <p>Serial Number:{{phone.serialNumber}}</p>
   <p>Name:{{phone.name}}</p>
   <p>Color:{{ phone.color | titlecase}}</p>
-  <p>Brand:{{ phone.brand | uppercase}}</p>
+  <p>Brand:{{ phone.brand}}</p>
+  <p>Budget:{{phone.budget | currency: 'CAD': "symbol-narrow"}}</p>
   <p>Software:{{ phone.software | lowercase}}</p>
   <p>Image: {{phone.imgPath}}</p>
 </div>

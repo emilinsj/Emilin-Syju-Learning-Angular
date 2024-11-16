@@ -4,9 +4,10 @@
     <thead>
     <tr>
       <th>Serial Number</th>
-      <th>Brand</th>
+      <th>Product</th>
       <th>Color</th>
-      <th>Name</th>
+      <th>Budget</th>
+
       <th>Software</th>
       <th>Image</th>
     </tr>
@@ -14,9 +15,9 @@
     <tbody>
     <tr *ngFor="let phone of PhoneList" [routerLink]="['/phones',phone.serialNumber ]">
       <td>{{ phone.serialNumber }}</td>
-      <td>{{ phone.brand | uppercase}}</td>
+      <td>{{ phone | product}}</td>
       <td>{{ phone.color | titlecase}}</td>
-      <td>{{ phone.name}}</td>
+      <td>{{phone.budget | currency: 'CAD': "symbol-narrow"}}</td>
       <td>{{ phone.software | lowercase}}</td>
       <td><img [src]="phone.imgPath" alt="{{phone.name}}" width="50" height="50"/> </td>
       <td>

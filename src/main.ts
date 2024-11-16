@@ -13,8 +13,15 @@ import {InMemoryDataService} from "./app/services/in-memory-data.service";
 const routes:Routes=[
   {path:'phones', component:PhoneListComponent},
   {path:'phones/:serialNumber', component:PhoneListItemComponent},
-  {path:'modify-phone', component: ModifylistitemcomponentComponent},
-  {path: '**', component:PagenotfoundcomponentComponent}
+  {path:'phones/:id',
+    loadComponent: () =>
+      import('./app/phone-list-item/phone-list-item.component').then(m => m.PhoneListItemComponent) },
+  { path: 'modifylistitem',
+    loadComponent: () =>
+      import('./app/modifylistitem/modifylistitem.component').then(m => m.Modify) },
+  { path: '**',
+    loadComponent: () =>
+      import('./app/pagenotfound/pagenotfound.component').then(m => m.PageNotFoundComponent) },
 
 ];
 

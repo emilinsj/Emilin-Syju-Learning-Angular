@@ -3,6 +3,7 @@ export interface Phone {
   brand: string;
   name: string;
   color: string;
+  budget?: number;
   software?: string;
   imgPath:String;
 }
