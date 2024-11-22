@@ -14,6 +14,7 @@ import {Phone} from "../models/phone";
 import {PhoneService} from "../services/phone.service";
 import {Router, RouterLink} from "@angular/router";
 import {ProductPipe} from "../pipes/product.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 
 @Component({
@@ -30,7 +31,8 @@ import {ProductPipe} from "../pipes/product.pipe";
     TitleCasePipe,
     PercentPipe,
     CurrencyPipe,
-    ProductPipe
+    ProductPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './phone-list.component.html',
   styleUrl: './phone-list.component.css'

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Phone} from "../models/phone";
 import {CurrencyPipe, LowerCasePipe, NgIf, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import { RouterLink} from "@angular/router";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-phone-list-item',
@@ -13,7 +14,8 @@ import { RouterLink} from "@angular/router";
     UpperCasePipe,
     TitleCasePipe,
     LowerCasePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './phone-list-item.component.html',
   styleUrl: './phone-list-item.component.css'
