@@ -3,6 +3,7 @@ import {Phone} from "../models/phone";
 import {CurrencyPipe, LowerCasePipe, NgIf, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import { RouterLink} from "@angular/router";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-phone-list-item',
@@ -15,7 +16,8 @@ import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
     TitleCasePipe,
     LowerCasePipe,
     CurrencyPipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
   ],
   templateUrl: './phone-list-item.component.html',
   styleUrl: './phone-list-item.component.css'
