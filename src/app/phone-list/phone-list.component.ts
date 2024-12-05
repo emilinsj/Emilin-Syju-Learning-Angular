@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {PhoneListItemComponent} from "../phone-list-item/phone-list-item.component";
 import {
   CurrencyPipe,
@@ -16,6 +16,20 @@ import {Router, RouterLink} from "@angular/router";
 import {ProductPipe} from "../pipes/product.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable, MatTableDataSource
+} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {MatFormField, MatFormFieldModule,} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
 
 
 @Component({
@@ -34,14 +48,37 @@ import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.direct
     CurrencyPipe,
     ProductPipe,
     HoverHighlightDirective,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatTable,
+    MatColumnDef,
+    MatHeaderCell,
+    MatCell,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatHeaderRow,
+    MatHeaderRowDef,
+    MatRow,
+    MatRowDef,
+    MatPaginator,
+    MatTab,
+    MatTabGroup,
+    MatFormField,
+    MatFormFieldModule,
+    MatInput,
+    MatFormField,
+    MatButton
   ],
   templateUrl: './phone-list.component.html',
   styleUrl: './phone-list.component.css'
 })
 export class PhoneListComponent implements OnInit {
+  displayedColumns:string[]= ['id', 'name', 'color', 'budget','software','image','actions'];
   PhoneList:Phone[]=[];
+  dataSource: MatTableDataSource<Phone> = new MatTableDataSource(this.PhoneList);
   error:string|null=null;
+  selectedTabIndex: number = 0;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | null =null;
   constructor(private phoneService:PhoneService,
   private router:Router) {
   }
@@ -51,6 +88,8 @@ export class PhoneListComponent implements OnInit {
       next: (data: Phone[]) => {
         this.PhoneList = data;
         this.error = null;
+        this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
       },
       error: err => {
         this.error = 'Error fetching phone';
@@ -71,6 +110,7 @@ export class PhoneListComponent implements OnInit {
     this.phoneService.deletePhone(serialNumber).subscribe({
       next:(updatePhone:Phone[])=>{
         this.PhoneList=updatePhone;
+        this.dataSource.data=updatePhone;
         this.error=null;
       },
       error:err=>{
@@ -79,6 +119,7 @@ export class PhoneListComponent implements OnInit {
       }
     });
   }
+
  /* selectedPhone?:Phone;
   selectsPhone(phone:Phone):void{
     this.selectedPhone=phone

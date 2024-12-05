@@ -1,35 +1,66 @@
-<div class="container">
-  <h2>Phone List</h2>
-  <table>
-    <thead>
-    <tr>
-      <th>Serial Number</th>
-      <th>Product</th>
-      <th>Color</th>
-      <th>Budget</th>
+<div class="mat-container">
+  <h2>Phone Management</h2>
 
-      <th>Software</th>
-      <th>Image</th>
+  <!-- Material Tabs -->
+  <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+    <!-- Tab 1-->
+    <mat-tab label="Phone List">
+
+  <!--material table-->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let phone">{{ phone.serialNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let phone">{{ phone.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef>Color</th>
+      <td mat-cell *matCellDef="let phone">{{ phone.color | titlecase}}</td>
+    </ng-container>
+    <ng-container matColumnDef="budget">
+      <th mat-header-cell *matHeaderCellDef>Budget</th>
+      <td mat-cell *matCellDef="let phone">{{ phone.budget  | currency: 'CAD': 'symbol-narrow'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="software">
+      <th mat-header-cell *matHeaderCellDef>Software</th>
+      <td mat-cell *matCellDef="let phone">{{ phone.software  | lowercase}}</td>
+    </ng-container>
+    <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>Image</th>
+    <td mat-cell *matCellDef="let phone">
+      <img [src]="phone.imgPath" alt="{{phone.name}}" width="50" height="50"/> </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let phone">
+        <!--Badge-->
+      <button mat-raised-button color="primary" (click)="editPhone(phone.serialNumber)">Edit</button>
+        <button mat-raised-button color="warn" (click)="deletePhone(phone.serialNumber)">Delete</button></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let phone; columns:displayedColumns"
+      [routerLink]="['/phones',phone.serialNumber ]"
+      [appHoverHighlight]="'lightblue'"
+      [appHighlightOnFocus]="'orange'"
+      >
+
     </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let phone of PhoneList" [routerLink]="['/phones',phone.serialNumber ]" [appHoverHighlight]="'lightblue'" [appHighlightOnFocus]="'orange'" >
-      <td>{{ phone.serialNumber }}</td>
-      <td>{{ phone | product}}</td>
-      <td>{{ phone.color | titlecase}}</td>
-      <td>{{phone.budget | currency: 'CAD': "symbol-narrow"}}</td>
-      <td>{{ phone.software | lowercase}}</td>
-      <td><img [src]="phone.imgPath" alt="{{phone.name}}" width="50" height="50"/> </td>
-      <td>
-        <button (click)="editPhone(phone.serialNumber)">Edit</button>
-        <button (click)="deletePhone(phone.serialNumber)">Delete</button>
-      </td>
-
-    </tr>
-
-    </tbody>
   </table>
+  <!--Pagination-->
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </mat-tab>
+    <mat-tab label="Add new Phone">
+      <h4>Add availability time</h4>
+      <p>select a date </p>
 
+    </mat-tab>
+  </mat-tab-group>
 </div>
+
 
 <div *ngIf="error" class="error">{{ error }}</div>

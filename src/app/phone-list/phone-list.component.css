@@ -1,26 +1,24 @@
-
-h2 {
-  text-align: center;
+.mat-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
+.mat-elevation-z8 {
+  margin-top: 1rem;
+  border-radius: 8px;
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.mat-header-cell {
+  font-weight: bold;
 }
 
-th {
-  background-color: #f4f4f4;
+.mat-row {
+  cursor: pointer;
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9;
+.mat-error {
+  color: red;
+  font-weight: bold;
 }
-
 
