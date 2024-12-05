@@ -15,7 +15,7 @@ const routes:Routes=[
   {path:'phones/:id',
     loadComponent: () =>
       import('./app/phone-list-item/phone-list-item.component').then(m => m.PhoneListItemComponent) },
-  { path: 'modifylistitem',
+  { path: 'modify-phone',
     loadComponent: () =>
       import('./app/modifylistitemcomponent/modifylistitemcomponent.component').then(m => m.ModifylistitemcomponentComponent) },
   { path: '**',

@@ -5,13 +5,15 @@ import {PhoneListComponent} from "./phone-list/phone-list.component";
 import {Phone} from "./models/phone";
 import {PhoneService} from "./services/phone.service";
 import {PhoneList} from "./models/mock-phone";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatButton} from "@angular/material/button";
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, PhoneListComponent, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, NgIf, PhoneListComponent, RouterLink, RouterLinkActive, MatToolbar, MatButton],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

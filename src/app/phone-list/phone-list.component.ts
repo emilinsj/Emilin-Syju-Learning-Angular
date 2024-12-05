@@ -30,6 +30,7 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {MatFormField, MatFormFieldModule,} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
+import {MatTooltip} from "@angular/material/tooltip";
 
 
 @Component({
@@ -66,7 +67,8 @@ import {MatButton} from "@angular/material/button";
     MatFormFieldModule,
     MatInput,
     MatFormField,
-    MatButton
+    MatButton,
+    MatTooltip
   ],
   templateUrl: './phone-list.component.html',
   styleUrl: './phone-list.component.css'

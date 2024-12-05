@@ -1,9 +1,9 @@
-<div class="nav-bar">
-  <nav>
-    <a routerLink="/phones" routerLinkActive="active">Phone List</a>
-    <a routerLink="/modify-phone" routerLinkActive="active">Modify Phone</a>
-  </nav>
-</div>
+<mat-toolbar color="primary">
+  <span>Phone System</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/phones" routerLinkActive="active">Phone List</button>
+  <button mat-button routerLink="/modify-phone" routerLinkActive="active">Modify Phone</button>
+</mat-toolbar>
 
 <div class="app-container">
   <h1>{{ title }}</h1>
